@@ -1,0 +1,104 @@
+{% extends "./base.html" %}
+
+{% block centre %}
+
+        <!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body">
+
+            <div class="container-fluid mt-3">
+                
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card-header pb-0">
+                            <h6>Table Produit</h6>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="active-member">
+                                    <button type="button" class="btn btn-primary"><a href="{{ url_for('ajout_produit') }}" class="text-white">Ajouter</a></button>
+                                    <div class="table-responsive">
+                                        <table class="table table-xs mb-0">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Nom</th>
+                                                    <th>Description</th>
+                                                    <th>Prix</th>
+                                                    <th>Categorie</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for row in data %}
+                                                <tr>
+                                                    <!-- <td><img src="./images/avatar/1.jpg" class=" rounded-circle mr-3" alt=""></td> -->
+                                                    <td>{{ row[0] }}</td>
+                                                    <td>
+                                                        <div>{{ row[1] }}</div>
+                                                    </td>
+                                                    <td>
+                                                        <div>
+                                                            <div >
+                                                                <div>{{ row[2] }}</div>
+                                                            </div>
+                                                            <img src="" alt="">
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div>
+                                                            <div >
+                                                                <div>{{ row[3] }}</div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div>
+                                                            <div>
+                                                                <div>{{ row[4] }}</div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <a class="btn btn-sm btn-success" href="{{ url_for('modif_produit', item_id=row[0]) }}">modifier</a>
+                                                        <a class="btn btn-sm btn-danger" class="btn btn-sm btn-danger" href="{{ url_for('confirme_produit', item_id=row[0]) }}">supprimer</>
+
+                                                    </td>
+                                                </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                        <!-- Pagination Links -->
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination justify-content-center mt-3">
+                                {% if page > 1 %}
+                                    <li class="page-item"><a class="page-link" href="{{ url_for('produit', page=1) }}">First</a></li>
+                                    <li class="page-item"><a class="page-link" href="{{ url_for('produit', page=page-1) }}">Previous</a></li>
+                                {% endif %}
+                                {% for num in range(page-5 if page-5 > 0 else 1, page+6 if page+5 < total_pages else total_pages+1) %}
+                                    <li class="page-item {% if num == page %}active{% endif %}"><a class="page-link" href="{{ url_for('produit', page=num) }}">{{ num }}</a></li>
+                                {% endfor %}
+                                {% if page < total_pages %}
+                                    <li class="page-item"><a class="page-link" href="{{ url_for('produit', page=page+1) }}">Next</a></li>
+                                    <li class="page-item"><a class="page-link" href="{{ url_for('produit', page=total_pages) }}">Last</a></li>
+                                {% endif %}
+                            </ul>
+                        </nav>
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
+
+
+            </div>
+            <!-- #/ container -->
+        </div>
+        <!--**********************************
+            Content body end
+        ***********************************-->
+
+{% endblock %}

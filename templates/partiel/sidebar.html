@@ -1,0 +1,38 @@
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+        <div class="nk-sidebar">           
+            <div class="nk-nav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li class="nav-label">Dashboard</li>
+                    <li>
+                        <a class="has-arrow" href="{{ url_for('dashboard')}}" aria-expanded="false">
+                            <i class="icon-speedometer menu-icon"></i><span class="nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="mega-menu mega-menu-sm">
+                        <a class="has-arrow" href="{{ url_for('produit')}}" aria-expanded="false">
+                            <i class="icon-globe-alt menu-icon"></i><span class="nav-text">Produit</span>
+                        </a>
+                    </li>
+                    <li class="mega-menu mega-menu-sm">
+                        <a class="has-arrow" href="{{ url_for('stock')}}" aria-expanded="false">
+                            <i class="icon-globe-alt menu-icon"></i><span class="nav-text">Stock</span>
+                        </a>
+                    </li>
+                    <li class="mega-menu mega-menu-sm">
+                        <a class="has-arrow" href="{{ url_for('vente')}}" aria-expanded="false">
+                            <i class="icon-globe-alt menu-icon"></i><span class="nav-text">Vente</span>
+                        </a>
+                    </li>
+                    <li class="mega-menu mega-menu-sm">
+                        <a class="has-arrow" href="{{ url_for('utilisateur')}}" aria-expanded="false">
+                            <i class="icon-globe-alt menu-icon"></i><span class="nav-text">Utilisateur</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--**********************************
+            Sidebar end
+        ***********************************-->
